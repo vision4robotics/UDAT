@@ -18,7 +18,7 @@ Before training, we need to preprocess the unlabelled training data to generate 
 
 1. Download the proposed [NAT2021-*train* set](https://pan.baidu.com/s/14QWmugCuGUvh2diV2i9bMw?pwd=v4rr)
 
-2. Customize the directory of the train set in `lowlight_enhancement.py` and Enhance the nighttime sequences
+2. Customize the directory of the train set in `lowlight_enhancement.py` and enhance the nighttime sequences
 
    ```python
    cd preprocessing/
@@ -66,11 +66,11 @@ Take UDAT-CAR for instance.
 Take UDAT-CAR for instance.
 1. For quick test, you can download our trained model for [UDAT-CAR](https://drive.google.com/file/d/1DccbQ4nh2rlni8RVykTNzuHXJgSvNE4G/view?usp=sharing) (or [UDAT-BAN](https://drive.google.com/file/d/1nKyzA0ohOmrvSvypM-0cCvGNo93ZvdLp/view?usp=sharing)) and place it at `UDAT/CAR/experiments/udatcar_r50_l234`.
 
-- Start testing
+2. Start testing
 
-  ```python
-  python tools/test.py --dataset NAT
-  ```
+    ```python
+    python tools/test.py --dataset NAT
+    ```
 
 ### 4. Eval
 
@@ -102,7 +102,7 @@ Take UDAT-CAR for instance.
 
 ### Acknowledgments
 
-We sincerely thank the contribution of following repos: [SiamCAR](https://github.com/ohhhyeahhh/SiamCAR), [SiamBAN](https://github.com/hqucv/siamban), [DCFNet](https://github.com/Roudgers/DCFNet), [DCE](https://github.com/Li-Chongyi/Zero-DCE), [USOT](https://github.com/VISION-SJTU/USOT).
+We sincerely thank the contribution of following repos: [SiamCAR](https://github.com/ohhhyeahhh/SiamCAR), [SiamBAN](https://github.com/hqucv/siamban), [DCFNet](https://github.com/Roudgers/DCFNet), [DCE](https://github.com/Li-Chongyi/Zero-DCE), and [USOT](https://github.com/VISION-SJTU/USOT).
 
 
 
