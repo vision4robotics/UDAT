@@ -1,0 +1,86 @@
+META_ARC: "udatcar_r50_l234"
+
+BACKBONE:
+    TYPE: "resnet50"
+    KWARGS:
+        used_layers: [2, 3, 4]
+    PRETRAINED: ''
+    TRAIN_LAYERS: ['layer2','layer3','layer4']
+    TRAIN_EPOCH: 0
+    LAYERS_LR: 0.1
+
+ADJUST:
+    ADJUST: true
+    TYPE: "AdjustAllLayer"
+    KWARGS:
+        in_channels: [512, 1024, 2048]
+        out_channels: [256, 256, 256]
+
+ALIGN:
+    ALIGN: true
+    TYPE: "Adjust_Transformer"
+    KWARGS:
+        channels: 256
+
+TRACK:
+    TYPE: 'SiamCARTracker'
+    PENALTY_K: 0.04
+    WINDOW_INFLUENCE: 0.44
+    LR: 0.33
+    EXEMPLAR_SIZE: 127
+    INSTANCE_SIZE: 255
+    CONTEXT_AMOUNT: 0.5
+    STRIDE: 8
+
+TRAIN:
+    EPOCH: 20
+    START_EPOCH: 0
+    BATCH_SIZE: 24
+    BASE_LR: 0.0015
+    BASE_LR_d: 0.005
+    CLS_WEIGHT: 1.0
+    LOC_WEIGHT: 3.0
+    CEN_WEIGHT: 1.0
+    PRETRAINED: './tools/snapshot/general_model.pth'  # path to pretrained daytime model
+    RESUME: ''
+    RESUME_D: ''
+    NUM_CLASSES: 2
+    NUM_CONVS: 4
+    PRIOR_PROB: 0.01
+    OUTPUT_SIZE: 25
+
+    LR:
+        TYPE: 'log'
+        KWARGS:
+            start_lr: 0.0015
+            end_lr: 0.00015
+    LR_WARMUP:
+        TYPE: 'step'
+        EPOCH: 5
+        KWARGS:
+            start_lr: 0.0003
+            end_lr: 0.0015
+            step: 1
+
+DATASET:
+    NAMES: 
+    - 'VID'
+    - 'GOT'
+    - 'DarkTrack'
+
+    TEMPLATE:
+        SHIFT: 4
+        SCALE: 0.05
+        BLUR: 0.0
+        FLIP: 0.0
+        COLOR: 1.0
+
+    SEARCH:
+        SHIFT: 64
+        SCALE: 0.18
+        BLUR: 0.2
+        FLIP: 0.0
+        COLOR: 1.0
+
+    NEG: 0.0
+    GRAY: 0.0
