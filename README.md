@@ -8,7 +8,7 @@
 
 **UDAT** is an unsupervised domain adaptation framework for visual object tracking. This repo contains its Python implementation.
 
-Paper (coming soon) | [NAT2021 benchmark](https://pan.baidu.com/s/14QWmugCuGUvh2diV2i9bMw?pwd=v4rr)
+[Paper](https://arxiv.org/abs/2203.10541) | [NAT2021 benchmark](https://pan.baidu.com/s/14QWmugCuGUvh2diV2i9bMw?pwd=v4rr)
 
 ## Testing UDAT
 
