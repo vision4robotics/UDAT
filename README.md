@@ -8,7 +8,7 @@
 
 **UDAT** is an unsupervised domain adaptation framework for visual object tracking. This repo contains its Python implementation.
 
-[Paper](https://arxiv.org/abs/2203.10541) | NAT2021 benchmark ([Google drive](https://drive.google.com/drive/folders/1d0ReWWZmoAYDIttHfSDS7TJ8LIiMB8uG?usp=sharing), [Baidu netdisk](https://pan.baidu.com/s/14QWmugCuGUvh2diV2i9bMw?pwd=v4rr))
+[Paper](https://arxiv.org/abs/2203.10541) | [NAT2021 benchmark](https://vision4robotics.github.io/NAT2021/)
 
 ## Testing UDAT
 
@@ -16,7 +16,7 @@
 
 Before training, we need to preprocess the unlabelled training data to generate training pairs.
 
-1. Download the proposed [NAT2021-*train* set](https://drive.google.com/drive/folders/1d0ReWWZmoAYDIttHfSDS7TJ8LIiMB8uG?usp=sharing)
+1. Download the proposed [NAT2021-*train* set](https://vision4robotics.github.io/NAT2021/)
 
 2. Customize the directory of the train set in `lowlight_enhancement.py` and enhance the nighttime sequences
 
