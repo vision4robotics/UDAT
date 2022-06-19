@@ -242,8 +242,8 @@ def train(source_loader, target_loader, model, optimizer, lr_scheduler, tb_write
         interp = nn.Upsample(size=(128, 128), mode='bilinear', align_corners=True)
         zf_up_t = [interp(_zf) for _zf in zf]
         xf_up_t = [interp(_xf) for _xf in xf]
-        D_out_z = np.sum([Disc(F.softmax(_zf_up_t, dim=1)) for _zf_up_t in zf_up_t])/3.0
-        D_out_x = np.sum([Disc(F.softmax(_xf_up_t, dim=1)) for _xf_up_t in xf_up_t])/3.0
+        D_out_z = torch.stack([Disc(F.softmax(_zf_up_t, dim=1)) for _zf_up_t in zf_up_t]).sum(0) / 3.
+        D_out_x = torch.stack([Disc(F.softmax(_xf_up_t, dim=1)) for _xf_up_t in xf_up_t]).sum(0) / 3.
         D_source_label = torch.FloatTensor(D_out_z.data.size()).fill_(source_label)
         loss_adv = 0.1 * (weightedMSE(D_out_z, D_source_label) +  weightedMSE(D_out_x, D_source_label)) #  / cfg.TRAIN.BATCH_SIZE
 
@@ -268,8 +268,8 @@ def train(source_loader, target_loader, model, optimizer, lr_scheduler, tb_write
             param.requires_grad = True 
         zf_up_t = [_zf_up_t.detach() for _zf_up_t in zf_up_t]
         xf_up_t = [_xf_up_t.detach() for _xf_up_t in xf_up_t]
-        D_out_1 = np.sum([Disc(F.softmax(_zf_up_t, dim=1)) for _zf_up_t in zf_up_t])/3.0
-        D_out_2 = np.sum([Disc(F.softmax(_xf_up_t, dim=1)) for _xf_up_t in xf_up_t])/3.0
+        D_out_1 = torch.stack([Disc(F.softmax(_zf_up_t, dim=1)) for _zf_up_t in zf_up_t]).sum(0) / 3.
+        D_out_2 = torch.stack([Disc(F.softmax(_xf_up_t, dim=1)) for _xf_up_t in xf_up_t]).sum(0) / 3.
         D_target_label = torch.FloatTensor(D_out_z.data.size()).fill_(target_label)
         loss_d = 0.1*weightedMSE(D_out_1, D_target_label) + 0.1*weightedMSE(D_out_2, D_target_label)
 
@@ -280,8 +280,8 @@ def train(source_loader, target_loader, model, optimizer, lr_scheduler, tb_write
 
         zf_up_s = [_zf_up_s.detach() for _zf_up_s in zf_up_s]
         xf_up_s = [_xf_up_s.detach() for _xf_up_s in xf_up_s]
-        D_out_1 = np.sum([Disc(F.softmax(_zf_up_s, dim=1)) for _zf_up_s in zf_up_s])/3.0
-        D_out_2 = np.sum([Disc(F.softmax(_xf_up_s, dim=1)) for _xf_up_s in xf_up_s])/3.0
+        D_out_1 = torch.stack([Disc(F.softmax(_zf_up_s, dim=1)) for _zf_up_s in zf_up_s]).sum(0) / 3.
+        D_out_2 = torch.stack([Disc(F.softmax(_xf_up_s, dim=1)) for _xf_up_s in xf_up_s]).sum(0) / 3.
         D_source_label = torch.FloatTensor(D_out_z.data.size()).fill_(source_label)
         loss_d = 0.1*weightedMSE(D_out_1, D_source_label) + 0.1*weightedMSE(D_out_2, D_source_label)
 
