@@ -64,7 +64,7 @@ def main():
                 precision_ret.update(ret)
         benchmark.show_result(success_ret, precision_ret,
                 show_video_level=args.show_video_level)
-    elif 'NAT' in args.dataset:
+    elif 'NAT' == args.dataset:
         dataset = NATDataset(args.dataset, root)
         dataset.set_tracker(tracker_dir, trackers)
         benchmark = OPEBenchmark(dataset)
