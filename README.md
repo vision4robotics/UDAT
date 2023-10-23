@@ -1,6 +1,6 @@
 # Unsupervised Domain Adaptation for Nighttime Aerial Tracking (CVPR2022)
 
-[Junjie Ye](https://jayye99.github.io/), [Changhong Fu](https://vision4robotics.github.io/authors/changhong-fu/), [Guangze Zheng](https://zhengguangze.netlify.app/), [Danda Pani Paudel](https://people.ee.ethz.ch/~paudeld/), and [Guang Chen](https://ispc-group.github.io/). Unsupervised Domain Adaptation for Nighttime Aerial Tracking. In CVPR, pages 1-10, 2022.
+[Junjie Ye]([https://jayye99.github.io/](https://jay-ye.github.io/)), [Changhong Fu](https://vision4robotics.github.io/authors/changhong-fu/), [Guangze Zheng](https://zhengguangze.netlify.app/), [Danda Pani Paudel](https://people.ee.ethz.ch/~paudeld/), and [Guang Chen](https://ispc-group.github.io/). Unsupervised Domain Adaptation for Nighttime Aerial Tracking. In CVPR, pages 1-10, 2022.
 
 ![featured](https://github.com/vision4robotics/UDAT/blob/main/img/featured.png)
 
